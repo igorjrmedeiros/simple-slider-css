@@ -1,0 +1,49 @@
+#container {
+  display: flex;
+  border: 3px solid magenta;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#container-slide {
+  display: flex;
+  border: 3px solid black;
+  width: 480px;
+  height: fit-content;
+  gap: 15px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.card {
+  height: 200px;
+  width: 150px;
+  background-color: gray;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  min-width: 150px;
+  left: 0px;
+  position: relative;
+  transition: left 0.5s ease-in-out;
+}
+
+.arrow {
+  border: 1px solid black;
+  display: flex;
+  border-radius: 50%;
+  background-color: brown;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.arrow:hover {
+  background-color: cyan;
+  cursor: pointer;
+}

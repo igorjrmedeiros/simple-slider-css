@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>Simple Card Slider - CSS</title>
+</head>
+<script>
+  function moveSlide(direction) {
+    const meusCards = document.querySelectorAll(".card")
+    const quantidadeCards = meusCards.length
+    const maximoLeft = -(quantidadeCards - 3) * 165;
+
+    const arrows = document.querySelectorAll(".arrow")
+
+    arrows.forEach((element) => {
+      element.disabled = true
+    })
+
+    let leftAtual = parseInt(window.getComputedStyle(meusCards[0]).left)
+
+    if (direction == -1)
+    {
+      if (leftAtual < 0)
+      {
+        leftAtual += 165
+        for (index = 0; index < quantidadeCards; index++)
+        {
+          meusCards[index].style.left = leftAtual + "px";
+        }
+      }
+    } else if (direction == 1)
+    {
+      if (leftAtual > maximoLeft)
+      {
+        leftAtual -= 165
+        for (index = 0; index < quantidadeCards; index++)
+        {
+          meusCards[index].style.left = leftAtual + "px";
+        }
+      }
+    }
+    setTimeout(() => 
+    arrows.forEach((element) => {
+      element.disabled = false
+    }), 800)
+  }
+</script>
+<body>
+  <div id="container">
+    <button onclick="moveSlide(-1)" class="arrow"><</button>
+    <div id="container-slide">
+      <div class="card">Item 0</div>
+      <div class="card">Item 1</div>
+      <div class="card">Item 2</div>
+      <div class="card">Item 3</div>
+      <div class="card">Item 4</div>
+      <div class="card">Item 5</div>
+      <div class="card">Item 6</div>
+      <div class="card">Item 7</div>
+      <div class="card">Item 8</div>
+      <div class="card">Item 9</div>
+    </div>
+    <button onclick="moveSlide(1)" class="arrow">></button>
+  </div>
+</body>
+</html>
